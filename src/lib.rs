@@ -1,14 +1,8 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub(crate) mod assets;
+mod config;
+mod error;
+mod splash_screen;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use config::SplashConfig;
+pub use error::SplashError;
+pub use splash_screen::SplashScreen;
