@@ -5,7 +5,10 @@ edition = "2021"
 
 [dependencies]
 ratatui = ">=0.25.0"
-rust-embed = "8.3.0"
+rust-embed = { version = "8.3.0", features = [
+  "interpolate-folder-path",
+  "include-exclude",
+] }
 image = { version = "0.25.0", default-features = false, features = [
   "png",
   "jpeg",
