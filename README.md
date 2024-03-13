@@ -57,6 +57,7 @@ fn main() -> Result<()> {
 See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/main/examples/demo.rs).
 
 #### Tips
+
 - Use small images (such as 200x200) for a better experience.
 - You can tweak the `render_steps` value for smoother rendering.
 - Run [`sha256sum(1)`] command on your system to find out the SHA value. You can set it to `None` if you don't want to check integrity.
