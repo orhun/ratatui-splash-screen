@@ -45,6 +45,7 @@ jobs:
         run: cargo rdme --check
 
   coverage:
+    name: Test coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -66,7 +67,7 @@ jobs:
           verbose: true
 
   audit:
-    name: Perform audit for security
+    name: Security audit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
