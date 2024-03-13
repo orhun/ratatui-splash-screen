@@ -37,7 +37,7 @@ impl SplashScreen {
         match Assets::get(config.image_path) {
             Some(asset) => {
                 if config.sha256sum.is_none()
-                    || (config.sha256sum == Some(asset.metadata.sha256_hash()))
+                    || (config.decode_sha256sum()? == Some(asset.metadata.sha256_hash().to_vec()))
                     || cfg!(not(debug_assertions))
                 {
                     Ok(Self {
