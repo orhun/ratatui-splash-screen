@@ -1,4 +1,6 @@
-# `ratatui-splash-screen`
+## `ratatui-splash-screen`
+
+<!-- cargo-rdme start -->
 
 A [Ratatui] widget to turn any image to a splash screen in your terminal ✨
 
@@ -6,26 +8,26 @@ A [Ratatui] widget to turn any image to a splash screen in your terminal ✨
 
 See the demo of [gpg-tui] for a real world example.
 
-## Features
+#### Features
 
 - Turn any image (`jpg`, `png`) into a splash screen!
 - Embeds images in your binary (via [rust-embed])
 - Verifies the file integrity via checking SHA checksum (optional)
 - Supports grayscale
 
-## Installation
+#### Installation
 
 ```shell
 cargo add ratatui ratatui-splash-screen
 ```
 
-## Usage
+#### Usage
 
 Create a `SplashConfig` and construct a `SplashScreen` widget with it.
 Then render the widget in a loop using the `render_widget` function.
 You can check if the splash screen is done rendering by calling `is_rendered`.
 
-## Examples
+#### Examples
 
 ```rust
 use ratatui_splash_screen::{SplashConfig, SplashScreen};
@@ -54,8 +56,7 @@ fn main() -> Result<()> {
 
 See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/main/examples/demo.rs).
 
-## Tips
-
+#### Tips
 - Use small images (such as 200x200) for a better experience.
 - You can tweak the `render_steps` value for smoother rendering.
 - Run [`sha256sum(1)`] command on your system to find out the SHA value. You can set it to `None` if you don't want to check integrity.
@@ -65,6 +66,8 @@ See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/
 [rust-embed]: https://github.com/pyrossh/rust-embed
 [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
 [gpg-tui]: https://github.com/orhun/gpg-tui
+
+<!-- cargo-rdme end -->
 
 ## Contributing
 
