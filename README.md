@@ -1,8 +1,10 @@
 # `ratatui-splash-screen`
 
-A [Ratatui] widget to turn any image to a splash screen in your terminal.
+A [Ratatui] widget to turn any image to a splash screen in your terminal ✨
 
 ![demo](https://github.com/orhun/ratatui-splash-screen/assets/24392180/e8e7570d-1c3a-4294-9b4c-e7e9b262730b)
+
+See the demo of [gpg-tui] for a real world example.
 
 ## Features
 
@@ -50,16 +52,23 @@ fn main() -> Result<()> {
 }
 ```
 
+See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/main/examples/demo.rs).
+
 ## Tips
 
 - Use small images (such as 200x200) for a better experience.
-- You can tweak the `render_steps` for smoother rendering.
+- You can tweak the `render_steps` value for smoother rendering.
 - Run [`sha256sum(1)`] command on your system to find out the SHA value. You can set it to `None` if you don't want to check integrity.
 
 [ratatui-splash-screen]: https://github.com/orhun/ratatui-splash-screen
 [ratatui]: https://ratatui.rs
 [rust-embed]: https://github.com/pyrossh/rust-embed
 [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
+[gpg-tui]: https://github.com/orhun/gpg-tui
+
+## Contributing
+
+See the [contribution guidelines](CONTRIBUTING.md).
 
 ## License
 
