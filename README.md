@@ -30,7 +30,12 @@ You can check if the splash screen is done rendering by calling `is_rendered`.
 #### Examples
 
 ```rust
-use ratatui_splash_screen::{SplashConfig, SplashScreen};
+use std::error::Error;
+use std::io::stdout;
+use std::time::Duration;
+
+use ratatui::prelude::*;
+use ratatui_splash_screen::{SplashConfig, SplashScreen, SplashError};
 
 static SPLASH_CONFIG: SplashConfig = SplashConfig {
     image_path: "assets/splash.png",
@@ -39,9 +44,10 @@ static SPLASH_CONFIG: SplashConfig = SplashConfig {
     use_colors: true,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), Box<dyn Error>> {
     // create a terminal
-    // let terminal = ...
+    let backend = CrosstermBackend::new(stdout());
+    let mut terminal = Terminal::new(backend)?;
 
     // render splash screen
     let mut splash_screen = SplashScreen::new(SPLASH_CONFIG)?;
@@ -49,8 +55,10 @@ fn main() -> Result<()> {
         terminal.draw(|frame| {
             frame.render_widget(&mut splash_screen, frame.size());
         })?;
+        std::thread::sleep(Duration::from_millis(100));
     }
 
+    Ok(())
 }
 ```
 
