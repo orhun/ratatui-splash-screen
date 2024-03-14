@@ -19,9 +19,9 @@
 //!
 //! ## Usage
 //!
-//! Create a `SplashConfig` and construct a `SplashScreen` widget with it.
-//! Then render the widget in a loop using the `render_widget` function.
-//! You can check if the splash screen is done rendering by calling `is_rendered`.
+//! Create a [`SplashConfig`] and construct a [`SplashScreen`] widget with it.
+//! Then render the widget in a loop using the [`render`] function.
+//! You can check if the splash screen is done rendering by calling [`is_rendered`].
 //!
 //! ## Examples
 //!
@@ -63,7 +63,7 @@
 //! ## Tips
 //!
 //! - Use small images (such as 200x200) for a better experience.
-//! - You can tweak the `render_steps` value for smoother rendering.
+//! - You can tweak the [`render_steps`] value for smoother rendering.
 //! - Run [`sha256sum(1)`] command on your system to find out the SHA value. You can set it to `None` if you don't want to check integrity.
 //!
 //! [ratatui-splash-screen]: https://github.com/orhun/ratatui-splash-screen
@@ -71,6 +71,12 @@
 //! [rust-embed]: https://github.com/pyrossh/rust-embed
 //! [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
 //! [gpg-tui]: https://github.com/orhun/gpg-tui
+//!
+//! [`SplashConfig`]: crate::config::SplashConfig
+//! [`SplashScreen`]: crate::splash_screen::SplashScreen
+//! [`is_rendered`]: crate::splash_screen::SplashScreen::is_rendered
+//! [`render_steps`]: crate::config::SplashConfig#structfield.render_steps
+//! [`render`]: https://docs.rs/ratatui/latest/ratatui/widgets/trait.Widget.html#tymethod.render
 
 pub(crate) mod assets;
 mod config;
