@@ -6,6 +6,12 @@ A [Ratatui] widget to turn any image to a splash screen in your terminal ✨
 
 ![demo](https://github.com/orhun/ratatui-splash-screen/assets/24392180/e8e7570d-1c3a-4294-9b4c-e7e9b262730b)
 
+[![crates.io badge]][ratatui-splash-screen-crate]
+[![docs.rs badge]][ratatui-splash-screen-docs]
+[![license badge]](./LICENSE-MIT)
+[![codecov.io badge]][Code Coverage]
+[![discord badge]][Ratatui Discord]
+
 See the demo of [gpg-tui] for a real world example.
 
 #### Features
@@ -16,6 +22,8 @@ See the demo of [gpg-tui] for a real world example.
 - Supports grayscale
 
 #### Installation
+
+[![deps.rs badge]][Dependency Status]
 
 ```shell
 cargo add ratatui ratatui-splash-screen
@@ -71,6 +79,8 @@ See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/
 - Run [`sha256sum(1)`] command on your system to find out the SHA value. You can set it to `None` if you don't want to check integrity.
 
 [ratatui-splash-screen]: https://github.com/orhun/ratatui-splash-screen
+[ratatui-splash-screen-crate]: https://crates.io/crates/ratatui-splash-screen
+[ratatui-splash-screen-docs]: https://docs.rs/ratatui-splash-screen
 [ratatui]: https://ratatui.rs
 [rust-embed]: https://github.com/pyrossh/rust-embed
 [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
@@ -81,6 +91,17 @@ See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/
 [`is_rendered`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/splash_screen/struct.SplashScreen.html#method.is_rendered
 [`render_steps`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/config/struct.SplashConfig.html#structfield.render_steps
 [`render`]: https://docs.rs/ratatui/latest/ratatui/widgets/trait.Widget.html#tymethod.render
+
+[crates.io badge]: https://img.shields.io/crates/v/ratatui-splash-screen?style=flat&logo=Rust&color=666&labelColor=1c1c24
+[docs.rs badge]: https://img.shields.io/docsrs/ratatui-splash-screen?logo=rust&style=flat&color=666&labelColor=1c1c24
+[deps.rs badge]: https://deps.rs/repo/github/orhun/ratatui-splash-screen/status.svg?style=flat&color=666&labelColor=1c1c24
+[license badge]: https://img.shields.io/crates/l/ratatui-splash-screen?style=flat&color=666&labelColor=1c1c24&logo=github
+[codecov.io badge]: https://img.shields.io/codecov/c/github/orhun/ratatui-splash-screen?logo=codecov&style=flat&color=666&labelColor=1c1c24&logoColor=white
+[discord badge]: https://img.shields.io/discord/1070692720437383208?label=Ratatui+Discord&logo=discord&style=flat&color=666&labelColor=1c1c24&logoColor=white
+
+[Dependency Status]: https://deps.rs/repo/github/orhun/ratatui-splash-screen
+[Code Coverage]: https://app.codecov.io/gh/orhun/ratatui-splash-screen
+[Ratatui Discord]: https://discord.gg/pMCEU9hNEj
 
 <!-- cargo-rdme end -->
 
