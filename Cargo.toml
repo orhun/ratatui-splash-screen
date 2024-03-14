@@ -1,6 +1,6 @@
 [package]
 name = "ratatui-splash-screen"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 edition = "2021"
 description = "A Ratatui widget to turn any image to a splash screen in your terminal"
 license = "MIT OR Apache-2.0"
