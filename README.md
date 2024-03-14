@@ -75,6 +75,7 @@ See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/
 [rust-embed]: https://github.com/pyrossh/rust-embed
 [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
 [gpg-tui]: https://github.com/orhun/gpg-tui
+
 [`SplashConfig`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/config/struct.SplashConfig.html
 [`SplashScreen`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/splash_screen/struct.SplashScreen.html
 [`is_rendered`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/splash_screen/struct.SplashScreen.html#method.is_rendered
