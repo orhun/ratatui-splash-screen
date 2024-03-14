@@ -1,0 +1,42 @@
+name: Continuous Deployment
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  create-release:
+    name: Create release
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v3
+        with:
+          args: --latest --github-repo ${{ github.repository }}
+        env:
+          OUTPUT: CHANGES.md
+
+      - name: Create release
+        run: gh release create "${{ github.ref_name }}" -F CHANGES.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-crates-io:
+    name: Publish on crates.io
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Publish
+        run: cargo publish --locked --token ${{ secrets.CARGO_TOKEN }}
