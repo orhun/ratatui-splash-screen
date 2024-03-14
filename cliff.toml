@@ -12,8 +12,19 @@ repo = "ratatui-splash-screen"
 [changelog]
 # changelog header
 header = """
-# Changelog\n
-All notable changes to this project will be documented in this file.\n
+# `ratatui-splash-screen`
+
+A [Ratatui](https://ratatui.rs) widget to turn any image to a splash screen in your terminal ✨
+
+![demo](https://github.com/orhun/ratatui-splash-screen/assets/24392180/e8e7570d-1c3a-4294-9b4c-e7e9b262730b)
+
+**Add it to your Ratatui project!** ⬇️
+
+```shell
+cargo add ratatui-splash-screen
+```
+
+See the [documentation](https://docs.rs/ratatui-splash-screen) for more information.\n
 """
 # template for the changelog body
 # https://keats.github.io/tera/docs/#introduction
