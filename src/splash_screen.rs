@@ -58,7 +58,9 @@ impl SplashScreen {
     ///
     /// Image is returned as grayscale if `colored` argument is `false`.
     fn get_color_data(&mut self) -> HashMap<ColorTuple, Vec<Point>> {
-        self.step -= 1;
+        if !self.is_rendered() {
+            self.step -= 1;
+        }
         match self.step.cmp(&(self.steps / 2)) {
             Ordering::Greater => {
                 if !self.use_colors {
