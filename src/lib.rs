@@ -13,9 +13,8 @@
 //! ## Features
 //!
 //! - Turn any image (`jpg`, `png`) into a splash screen!
-//! - Embeds images in your binary (via [rust-embed])
 //! - Verifies the file integrity via checking SHA checksum (optional)
-//! - Supports grayscale
+//! - Supports grayscaling
 //!
 //! ## Installation
 //!
@@ -42,7 +41,7 @@
 //! use ratatui_splash_screen::{SplashConfig, SplashScreen, SplashError};
 //!
 //! static SPLASH_CONFIG: SplashConfig = SplashConfig {
-//!     image_path: "assets/splash.png",
+//!     image_data: include_bytes!("../assets/splash.png"),
 //!     sha256sum: Some("c692ae1f9bd4a03cb6fc74a71cb585a8d70c2eacda8ec95e26aa0d6a0670cffd"),
 //!     render_steps: 12,
 //!     use_colors: true,
@@ -78,7 +77,6 @@
 //! [ratatui-splash-screen-crate]: https://crates.io/crates/ratatui-splash-screen
 //! [ratatui-splash-screen-docs]: https://docs.rs/ratatui-splash-screen
 //! [ratatui]: https://ratatui.rs
-//! [rust-embed]: https://github.com/pyrossh/rust-embed
 //! [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
 //! [gpg-tui]: https://github.com/orhun/gpg-tui
 //!
@@ -100,7 +98,6 @@
 //! [Code Coverage]: https://app.codecov.io/gh/orhun/ratatui-splash-screen
 //! [Ratatui Discord]: https://discord.gg/pMCEU9hNEj
 
-pub(crate) mod assets;
 mod config;
 mod error;
 mod splash_screen;

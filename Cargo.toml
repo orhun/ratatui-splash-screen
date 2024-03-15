@@ -12,14 +12,11 @@ keywords = ["ratatui", "terminal", "tui", "splash", "console"]
 
 [dependencies]
 ratatui = ">=0.25.0"
-rust-embed = { version = "8.3.0", features = [
-  "interpolate-folder-path",
-  "include-exclude",
-] }
 image = { version = "0.25.0", default-features = false, features = [
   "png",
   "jpeg",
 ] }
+sha256 = { version = "1.5.0", default-features = false }
 
 [dev-dependencies]
 crossterm = "0.27.0"

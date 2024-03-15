@@ -3,8 +3,8 @@ use crate::SplashError;
 /// Splash screen configuration.
 #[derive(Clone, Copy, Debug)]
 pub struct SplashConfig<'a> {
-    /// Path of the image file.
-    pub image_path: &'a str,
+    /// Image data.
+    pub image_data: &'a [u8],
     /// SHA256sum of the file.
     pub sha256sum: Option<&'a str>,
     /// Number of the rendering steps.
@@ -16,34 +16,38 @@ pub struct SplashConfig<'a> {
 impl<'a> SplashConfig<'a> {
     /// Constructs a new instance.
     pub fn new(
-        image_path: &'a str,
+        image_data: &'a [u8],
         sha256sum: Option<&'a str>,
         render_steps: i32,
         use_colors: bool,
     ) -> Self {
         Self {
-            image_path,
+            image_data,
             sha256sum,
             render_steps,
             use_colors,
         }
     }
 
-    /// Returns the value of sha256sum as hex decoded.
-    pub fn decode_sha256sum(&self) -> Result<Option<Vec<u8>>, SplashError> {
-        if let Some(s) = self.sha256sum {
-            let sha256sum = (0..s.len())
-                .step_by(2)
-                .map(|i| {
-                    u8::from_str_radix(&s[i..i + 2], 16).map_err(|e| SplashError {
-                        message: format!("failed to decode hex: {e}"),
-                    })
-                })
-                .collect::<Result<Vec<u8>, SplashError>>()?;
-            Ok(Some(sha256sum))
-        } else {
-            Ok(None)
+    /// Verifies the SHA256 checksum and returns an error on mismatch.
+    pub fn verify_checksum(&self) -> Result<(), SplashError> {
+        if let Some(sha256sum) = self.sha256sum {
+            let data_sha256sum = self.data_sha256sum();
+            if sha256sum != data_sha256sum {
+                return Err(SplashError {
+                    message: format!(
+                        "splash screen asset could not be verified\n({sha256sum} != {data_sha256sum})",
+                    ),
+                });
+            }
         }
+
+        Ok(())
+    }
+
+    /// Returns the SHA256 digest of the image data.
+    fn data_sha256sum(&self) -> String {
+        sha256::digest(self.image_data)
     }
 }
 
@@ -52,21 +56,30 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_decode_sha256sum() -> Result<(), SplashError> {
-        let sha256sum = "c692ae1f9bd4a03cb6fc74a71cb585a8d70c2eacda8ec95e26aa0d6a0670cffd";
-
+    fn test_verify_sha256sum() -> Result<(), SplashError> {
         let config = SplashConfig {
-            image_path: "",
-            sha256sum: Some(sha256sum),
+            image_data: include_bytes!("../assets/splash.png"),
+            sha256sum: Some("c692ae1f9bd4a03cb6fc74a71cb585a8d70c2eacda8ec95e26aa0d6a0670cffd"),
             render_steps: 0,
             use_colors: false,
         };
+        assert!(config.verify_checksum().is_ok());
 
-        assert_eq!(
-            hex_literal::hex!("c692ae1f9bd4a03cb6fc74a71cb585a8d70c2eacda8ec95e26aa0d6a0670cffd")
-                .to_vec(),
-            config.decode_sha256sum()?.unwrap()
-        );
+        let config = SplashConfig {
+            image_data: include_bytes!("../assets/splash.png"),
+            sha256sum: Some("test"),
+            render_steps: 0,
+            use_colors: false,
+        };
+        assert!(config.verify_checksum().is_err());
+
+        let config = SplashConfig {
+            image_data: &[],
+            sha256sum: None,
+            render_steps: 0,
+            use_colors: false,
+        };
+        assert!(config.verify_checksum().is_ok());
 
         Ok(())
     }

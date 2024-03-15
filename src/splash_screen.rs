@@ -7,7 +7,6 @@ use ratatui::widgets::Widget;
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
-use crate::assets::Assets;
 use crate::{SplashConfig, SplashError};
 
 /// RGB values.
@@ -34,31 +33,16 @@ pub struct SplashScreen {
 impl SplashScreen {
     /// Constructs a new instance.
     pub fn new(config: SplashConfig) -> Result<Self, SplashError> {
-        match Assets::get(config.image_path) {
-            Some(asset) => {
-                if config.sha256sum.is_none()
-                    || (config.decode_sha256sum()? == Some(asset.metadata.sha256_hash().to_vec()))
-                    || cfg!(not(debug_assertions))
-                {
-                    Ok(Self {
-                        image: image::load_from_memory(&asset.data).map_err(|e| SplashError {
-                            message: e.to_string(),
-                        })?,
-                        data: HashMap::new(),
-                        step: config.render_steps,
-                        steps: config.render_steps,
-                        use_colors: config.use_colors,
-                    })
-                } else {
-                    Err(SplashError {
-                        message: "splash screen asset could not be verified".into(),
-                    })
-                }
-            }
-            None => Err(SplashError {
-                message: format!("cannot find the splash screen asset: {}", config.image_path),
-            }),
-        }
+        config.verify_checksum()?;
+        Ok(Self {
+            image: image::load_from_memory(config.image_data).map_err(|e| SplashError {
+                message: e.to_string(),
+            })?,
+            data: HashMap::new(),
+            step: config.render_steps,
+            steps: config.render_steps,
+            use_colors: config.use_colors,
+        })
     }
 
     /// Returns true if the render of the splash screen is complete.
