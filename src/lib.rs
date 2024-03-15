@@ -98,6 +98,8 @@
 //! [Code Coverage]: https://app.codecov.io/gh/orhun/ratatui-splash-screen
 //! [Ratatui Discord]: https://discord.gg/pMCEU9hNEj
 
+#![warn(missing_docs, clippy::unwrap_used)]
+
 mod config;
 mod error;
 mod splash_screen;
