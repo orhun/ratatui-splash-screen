@@ -4,7 +4,7 @@
 
 A [Ratatui] widget to turn any image to a splash screen in your terminal ✨
 
-![demo](https://github.com/orhun/ratatui-splash-screen/assets/24392180/e8e7570d-1c3a-4294-9b4c-e7e9b262730b)
+![demo](https://github.com/orhun/ratatui-splash-screen/assets/24392180/3a094217-2825-4962-b22e-476dc4fbce55)
 
 [![crates.io badge]][ratatui-splash-screen-crate]
 [![docs.rs badge]][ratatui-splash-screen-docs]
