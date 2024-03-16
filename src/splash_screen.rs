@@ -16,7 +16,7 @@ type ColorTuple = (u8, u8, u8);
 type Point = (f64, f64);
 
 /// Splash screen.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct SplashScreen {
     /// Image that will be used for constructing the color data.
     image: DynamicImage,
