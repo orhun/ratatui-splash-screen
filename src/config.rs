@@ -59,7 +59,7 @@ mod tests {
     fn test_verify_sha256sum() -> Result<(), SplashError> {
         let config = SplashConfig {
             image_data: include_bytes!("../assets/splash.png"),
-            sha256sum: Some("c692ae1f9bd4a03cb6fc74a71cb585a8d70c2eacda8ec95e26aa0d6a0670cffd"),
+            sha256sum: Some("abc7e993ae85580df6a1349e89aa57d7d39cecdfe3cd5cc95f65b730aafab2cb"),
             render_steps: 0,
             use_colors: false,
         };
