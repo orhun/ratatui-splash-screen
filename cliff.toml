@@ -64,7 +64,7 @@ body = """
 {% endif %}
 
 {% macro remote_url() %}
-  https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
+  https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}\
 {% endmacro %}
 """
 # template for the changelog footer
