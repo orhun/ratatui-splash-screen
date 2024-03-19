@@ -108,6 +108,7 @@ impl Widget for &mut SplashScreen {
     where
         Self: Sized,
     {
+        let area = area.intersection(buf.area);
         let data = self.get_color_data();
         Canvas::default()
             .x_bounds([0.0, (self.image.to_rgb8().width() - 1) as f64])
