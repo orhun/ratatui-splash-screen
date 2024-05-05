@@ -98,7 +98,7 @@ impl SplashScreen {
                 data.insert(color, vec![(x, y)]);
             }
         }
-        self.data = data.clone();
+        self.data.clone_from(&data);
         data
     }
 }
