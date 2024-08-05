@@ -19,6 +19,6 @@ image = { version = "0.25.0", default-features = false, features = [
 sha256 = { version = "1.5.0", default-features = false }
 
 [dev-dependencies]
-crossterm = "0.27.0"
+crossterm = "0.28.1"
 anyhow = "1.0.81"
 hex-literal = "0.4.1"
