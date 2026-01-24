@@ -25,7 +25,7 @@ fn main() -> Result<()> {
     let mut splash_screen = SplashScreen::new(SPLASH_CONFIG)?;
     while !splash_screen.is_rendered() {
         terminal.draw(|frame| {
-            frame.render_widget(&mut splash_screen, frame.size());
+            frame.render_widget(&mut splash_screen, frame.area());
         })?;
         sleep(Duration::from_millis(100));
     }
