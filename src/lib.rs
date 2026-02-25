@@ -24,6 +24,13 @@
 //! cargo add ratatui ratatui-splash-screen
 //! ```
 //!
+//! To disable the default image format and only enable the one you need:
+//!
+//! ```toml
+//! [dependencies]
+//! ratatui-splash-screen = { version = "*", default-features = false, features = ["png"] }
+//! ```
+//!
 //! ## Usage
 //!
 //! Create a [`SplashConfig`] and construct a [`SplashScreen`] widget with it.
