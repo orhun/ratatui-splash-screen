@@ -83,20 +83,17 @@ See the full example [here](https://github.com/orhun/ratatui-splash-screen/blob/
 [ratatui]: https://ratatui.rs
 [`sha256sum(1)`]: https://linux.die.net/man/1/sha256sum
 [gpg-tui]: https://github.com/orhun/gpg-tui
-
 [`SplashConfig`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/config/struct.SplashConfig.html
 [`SplashScreen`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/splash_screen/struct.SplashScreen.html
 [`is_rendered`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/splash_screen/struct.SplashScreen.html#method.is_rendered
 [`render_steps`]: https://docs.rs/ratatui-splash-screen/latest/ratatui_splash_screen/config/struct.SplashConfig.html#structfield.render_steps
 [`render`]: https://docs.rs/ratatui/latest/ratatui/widgets/trait.Widget.html#tymethod.render
-
 [crates.io badge]: https://img.shields.io/crates/v/ratatui-splash-screen?style=flat&logo=Rust&color=666&labelColor=1c1c24
 [docs.rs badge]: https://img.shields.io/docsrs/ratatui-splash-screen?logo=rust&style=flat&color=666&labelColor=1c1c24
 [deps.rs badge]: https://deps.rs/repo/github/orhun/ratatui-splash-screen/status.svg?style=flat&color=666&labelColor=1c1c24
 [license badge]: https://img.shields.io/crates/l/ratatui-splash-screen?style=flat&color=666&labelColor=1c1c24&logo=github
 [codecov.io badge]: https://img.shields.io/codecov/c/github/orhun/ratatui-splash-screen?logo=codecov&style=flat&color=666&labelColor=1c1c24&logoColor=white
 [discord badge]: https://img.shields.io/discord/1070692720437383208?label=Ratatui+Discord&logo=discord&style=flat&color=666&labelColor=1c1c24&logoColor=white
-
 [Dependency Status]: https://deps.rs/repo/github/orhun/ratatui-splash-screen
 [Code Coverage]: https://app.codecov.io/gh/orhun/ratatui-splash-screen
 [Ratatui Discord]: https://discord.gg/pMCEU9hNEj
@@ -118,4 +115,4 @@ Licensed under either of [Apache License Version 2.0](./LICENSE-APACHE) or [The 
 
 ## Copyright
 
-Copyright © 2024, [Orhun Parmaksız](mailto:orhunparmaksiz@gmail.com)
+Copyright © 2024-2026, [Orhun Parmaksız](mailto:orhunparmaksiz@gmail.com)
