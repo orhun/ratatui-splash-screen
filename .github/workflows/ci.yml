@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Install cargo-rdme
-        uses: taiki-e/install-action@v2.87.0
+        uses: taiki-e/install-action@v2.87.5
         with:
           tool: cargo-rdme
       - name: Check README.md is up-to-date
@@ -55,7 +55,7 @@ jobs:
         with:
           components: llvm-tools
       - name: Install cargo-llvm-cov
-        uses: taiki-e/install-action@v2.87.0
+        uses: taiki-e/install-action@v2.87.5
         with:
           tool: cargo-llvm-cov
       - name: Generate coverage
